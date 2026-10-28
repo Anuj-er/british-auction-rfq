@@ -1,0 +1,15 @@
+{
+  "name": "british-auction-rfq",
+  "version": "1.0.0",
+  "description": "RFQ reverse auction demo with dynamic closing extensions",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "seed": "node scripts/seed.js",
+    "test": "node --test test/auction.test.js"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "private": true
+}
