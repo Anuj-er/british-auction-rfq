@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>British Auctions</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>British Auctions</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>RFQ</th>
+        <th>Lowest Bid</th>
+        <th>Current Close</th>
+        <th>Forced Close</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="list"></tbody>
+  </table>
+
+  <h2>Create RFQ</h2>
+  <form id="create">
+    <label class="full-width">
+      RFQ Name
+      <input name="name" placeholder="e.g. Mumbai to Delhi FTL" required>
+    </label>
+    <label>
+      Reference ID
+      <input name="reference_id" placeholder="RFQ-2026-001" required>
+    </label>
+    <label>
+      Pickup / Service Date
+      <input name="pickup_date" type="date" required>
+    </label>
+    <label>
+      Bid Start
+      <input name="bid_start" type="datetime-local" required>
+    </label>
+    <label>
+      Bid Close (Original)
+      <input name="bid_close" type="datetime-local" required>
+    </label>
+    <label class="full-width">
+      Forced Close (Hard Deadline)
+      <input name="forced_close" type="datetime-local" required>
+    </label>
+    <label>
+      Trigger Window X (min)
+      <input name="trigger_window_min" type="number" min="1" value="10" required>
+    </label>
+    <label>
+      Extension Y (min)
+      <input name="extension_min" type="number" min="1" value="5" required>
+    </label>
+    <label class="full-width">
+      Extension Trigger
+      <select name="trigger_type">
+        <option value="ANY_BID">Bid received in last X minutes</option>
+        <option value="ANY_RANK_CHANGE">Any supplier rank change in last X minutes</option>
+        <option value="L1_CHANGE">Lowest bidder (L1) change in last X minutes</option>
+      </select>
+    </label>
+    <p class="error" id="error"></p>
+    <button>Create RFQ</button>
+  </form>
+
+  <script src="scripts/index.js"></script>
+
+</body>
+</html>

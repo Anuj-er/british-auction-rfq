@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Auction Details</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>
+    <a href="/" class="back-link" title="Back to auctions">&larr;</a>
+    <span id="title">Auction Details</span>
+  </h1>
+
+  <div class="meta-box">
+    <div class="meta-row" id="summary"></div>
+    <div class="config-text" id="config"></div>
+  </div>
+
+  <h2>Rankings (Best Bid per Carrier)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Carrier</th>
+        <th>Freight</th>
+        <th>Origin</th>
+        <th>Destination</th>
+        <th>Total</th>
+        <th>Transit (Days)</th>
+        <th>Valid Until</th>
+      </tr>
+    </thead>
+    <tbody id="ranking"></tbody>
+  </table>
+
+  <h2 id="bid-heading">Submit Quote</h2>
+  <form id="bid">
+    <label class="full-width">
+      Carrier Name
+      <input name="carrier_name" placeholder="Carrier / Transporter name" required>
+    </label>
+    <label>
+      Freight Charges
+      <input name="freight_charges" type="number" min="0" step="0.01" required>
+    </label>
+    <label>
+      Origin Charges
+      <input name="origin_charges" type="number" min="0" step="0.01" required>
+    </label>
+    <label>
+      Destination Charges
+      <input name="destination_charges" type="number" min="0" step="0.01" required>
+    </label>
+    <label>
+      Transit Time (Days)
+      <input name="transit_time_days" type="number" min="0" required>
+    </label>
+    <label class="full-width">
+      Quote Valid Until
+      <input name="quote_validity" type="date" required>
+    </label>
+    <p class="error" id="error"></p>
+    <button>Submit Bid</button>
+  </form>
+
+  <h2>All Bids (Price Order)</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Carrier</th>
+        <th>Total Price</th>
+        <th>Submitted At</th>
+      </tr>
+    </thead>
+    <tbody id="bids"></tbody>
+  </table>
+
+  <h2>Activity Log</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Event</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody id="activity"></tbody>
+  </table>
+
+  <script src="scripts/rfq.js"></script>
+
+</body>
+</html>
